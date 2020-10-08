@@ -64,7 +64,11 @@ int RingBuffer::GetOccupiedSpace()
 
 int RingBuffer::GetTop()
 {
-	return _array[_startPointer];
+	if (_overallSize == 0)
+	{
+		throw "Buffer is empty\n";
+	}
+	return _array[(_startPointer - 1)];
 }
 
 

@@ -1,6 +1,5 @@
 #include "QueueTwoStacks.h"
 
-
 QueueTwoStacks::QueueTwoStacks()
 {
 	stackFirst = new Stack;

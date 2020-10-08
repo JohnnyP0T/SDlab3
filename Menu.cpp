@@ -1,4 +1,5 @@
 #include<iostream>
+#include<string>
 
 #include "Menu.h"
 #include "Stack.h"
@@ -9,31 +10,32 @@ using namespace std;
 
 int GetElementConsole()
 {
-	int taxableIncome;
-	for (;;) {
-		if (cin >> taxableIncome)
+	while (true)
+	{
+		string inputValue;
+		int number;
+		size_t length;
+		getline(cin, inputValue);
+
+		try
 		{
-			return taxableIncome;
-			break;
+			number = stoi(inputValue, &length);
+
+			if (length == inputValue.length())
+				return number;
 		}
-		else
-		{
-			cin.clear();
-			cin.ignore(80, '\n');
-		}
+		catch (exception) {}
+
+		cout << inputValue << " is not a number" << endl;
 	}
 }
 
-void Menu(Stack *stack)
+int Menu(Stack *stack)
 {
 	int count = 0;
 	bool valueForPrint = 0;
 	int valueForMenu = 0;
 	for (;;) {
-		if (valueForPrint)
-		{
-			cout << endl;
-		}
 		cout << "+=================== Stack ===================+" << endl;
 		cout << "Size = " << stack->GetLength() << endl;
 		cout << "1 - Pop \n";
@@ -83,6 +85,10 @@ void Menu(Stack *stack)
 			system("pause");
 			break;
 		}
+		case 0:
+		{
+			return 0;
+		}
 		default:
 		{
 			cout << "Invalid value\n";
@@ -95,21 +101,18 @@ void Menu(Stack *stack)
 }
 
 
-void Menu(RingBuffer* ringBuffer)
+int Menu(RingBuffer* ringBuffer)
 {
 	int count = 0;
 	bool valueForPrint = 0;
 	int valueForMenu = 0;
 	for (;;) {
-		if (valueForPrint)
-		{
-			cout << endl;
-		}
 		cout << "+=================== Ring buffer ===================+" << endl;
 		cout << "Free space = " << ringBuffer->GetFreeSpace() << endl;
 		cout << "Occupied space = " << ringBuffer->GetOccupiedSpace() << endl;
 		cout << "1 - Pop \n";
 		cout << "2 - Push \n";
+		cout << "3 - get top \n";
 		cout << " =++=  0 - Exit  =++=" << endl;
 		cout << "Enter operation: ";
 		count = GetElementConsole();
@@ -138,6 +141,25 @@ void Menu(RingBuffer* ringBuffer)
 			ringBuffer->Push(valueForMenu);
 			break;
 		}
+		case 3:
+		{
+			try
+			{
+				cout << ringBuffer->GetTop() << endl;
+			}
+			catch (const char* error)
+			{
+				cout << error;
+				system("pause");
+				break;
+			}
+			system("pause");
+			break;
+		}
+		case 0:
+		{
+			return 0;
+		}
 		default:
 		{
 			cout << "Invalid value\n";
@@ -150,20 +172,16 @@ void Menu(RingBuffer* ringBuffer)
 }
 
 
-void Menu(QueueTwoStacks* queueTwoStacks)
+int Menu(QueueTwoStacks* queueTwoStacks)
 {
 	int count = 0;
 	bool valueForPrint = 0;
 	int valueForMenu = 0;
 	for (;;) {
-		if (valueForPrint)
-		{
-			cout << endl;
-		}
 		cout << "+=================== Queue with two stacks ===================+" << endl;
 		cout << "Size = " << queueTwoStacks->GetLength() << endl;
-		cout << "1 - Pop \n";
-		cout << "2 - Push \n";
+		cout << "1 - DeQueue \n";
+		cout << "2 - Enqueue \n";
 		cout << "3 - get top \n";
 		cout << " =++=  0 - Exit  =++=" << endl;
 		cout << "Enter operation: ";
@@ -207,6 +225,81 @@ void Menu(QueueTwoStacks* queueTwoStacks)
 			}
 			system("pause");
 			break;
+		}
+		case 0:
+		{
+			return 0;
+		}
+		default:
+		{
+			cout << "Invalid value\n";
+			system("pause");
+			break;
+		}
+		}
+		system("cls");
+	}
+}
+
+
+int Menu(QueueRing* queueRing)
+{
+	int count = 0;
+	bool valueForPrint = 0;
+	int valueForMenu = 0;
+	for (;;) {
+		cout << "+=================== Ring Queue ===================+" << endl;
+		cout << "Free space = " << queueRing->GetFreeSpace() << endl;
+		cout << "Occupied space = " << queueRing->GetOccupiedSpace() << endl;
+		cout << "1 - DeQueue \n";
+		cout << "2 - EnQueue \n";
+		cout << "3 - get top \n";
+		cout << " =++=  0 - Exit  =++=" << endl;
+		cout << "Enter operation: ";
+		count = GetElementConsole();
+		cout << endl;
+		switch (count)
+		{
+		case 1:
+		{
+			try
+			{
+				cout << queueRing->DeQueue() << endl;
+			}
+			catch (const char* error)
+			{
+				cout << error;
+				system("pause");
+				break;
+			}
+			system("pause");
+			break;
+		}
+		case 2:
+		{
+			cout << "Enter integer value\n";
+			valueForMenu = GetElementConsole();
+			queueRing->EnQueue(valueForMenu);
+			break;
+		}
+		case 3:
+		{
+			try
+			{
+				cout << queueRing->GetTop() << endl;
+			}
+			catch (const char* error)
+			{
+				cout << error;
+				system("pause");
+				break;
+			}
+			system("pause");
+			break;
+		}
+		case 0:
+		{
+			return 0;
 		}
 		default:
 		{

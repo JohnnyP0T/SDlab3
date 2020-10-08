@@ -6,13 +6,16 @@
 #include "RingBuffer.h"
 #include "Stack.h"
 #include "QueueTwoStacks.h"
+#include "QueueRing.h"
 
 int GetElementConsole();
 
-void Menu(Stack* stack);
+int Menu(Stack* stack);
 
-void Menu(RingBuffer* ringBuffer);
+int Menu(RingBuffer* ringBuffer);
 
-void Menu(QueueTwoStacks* queueTwoStacks);
+int Menu(QueueTwoStacks* queueTwoStacks);
+
+int Menu(QueueRing* queueRing);
 
 #endif
