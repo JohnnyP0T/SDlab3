@@ -1,5 +1,6 @@
-#include<iostream>
-#include<string>
+#include <iostream>
+#include <string>
+#include <exception>
 
 #include "Menu.h"
 #include "Stack.h"
@@ -7,6 +8,9 @@
 #include "QueueTwoStacks.h"
 
 using namespace std;
+
+// enum
+// enum class  сделаю в следующей-=
 
 int GetElementConsole()
 {
@@ -22,7 +26,9 @@ int GetElementConsole()
 			number = stoi(inputValue, &length);
 
 			if (length == inputValue.length())
+			{
 				return number;
+			}
 		}
 		catch (exception) {}
 
@@ -33,7 +39,7 @@ int GetElementConsole()
 int Menu(Stack *stack)
 {
 	int count = 0;
-	bool valueForPrint = 0;
+	bool valueForPrint = false;
 	int valueForMenu = 0;
 	for (;;) {
 		cout << "+=================== Stack ===================+" << endl;
@@ -47,54 +53,53 @@ int Menu(Stack *stack)
 		cout << endl;
 		switch (count)
 		{
-		case 1:
-		{
-			try
+			case 1:
 			{
-				cout << stack->Pop() << endl;
-
-			}
-			catch (const char* error)
-			{
-				cout << error;
+				try
+				{
+					cout << stack->Pop() << endl;
+				}
+				catch (std::exception error)
+				{
+					cout << error.what();
+					system("pause");
+					break;
+				}
 				system("pause");
 				break;
 			}
-			system("pause");
-			break;
-		}
-		case 2:
-		{
-			cout << "Enter integer value\n";
-			valueForMenu = GetElementConsole();
-			stack->Push(valueForMenu);
-			break;
-		}
-		case 3:
-		{
-			try
+			case 2:
 			{
-				cout << stack->GetTop() << endl;
+				cout << "Enter integer value\n";
+				valueForMenu = GetElementConsole();
+				stack->Push(valueForMenu);
+				break;
 			}
-			catch (const char* error)
+			case 3:
 			{
-				cout << error;
+				try
+				{
+					cout << stack->GetTop() << endl;
+				}
+				catch (std::exception error)
+				{
+					cout << error.what();
+					system("pause");
+					break;
+				}
 				system("pause");
 				break;
 			}
-			system("pause");
-			break;
-		}
-		case 0:
-		{
-			return 0;
-		}
-		default:
-		{
-			cout << "Invalid value\n";
-			system("pause");
-			break;
-		}
+			case 0:
+			{
+				return 0;
+			}
+			default:
+			{
+				cout << "Invalid value\n";
+				system("pause");
+				break;
+			}
 		}
 		system("cls");
 	}
@@ -108,8 +113,8 @@ int Menu(RingBuffer* ringBuffer)
 	int valueForMenu = 0;
 	for (;;) {
 		cout << "+=================== Ring buffer ===================+" << endl;
-		cout << "Free space = " << ringBuffer->GetFreeSpace() << endl;
-		cout << "Occupied space = " << ringBuffer->GetOccupiedSpace() << endl;
+		cout << "Free space = " << ringBuffer->GetFreeQuantity() << endl;
+		cout << "Occupied space = " << ringBuffer->GetOccupiedQuantity() << endl;
 		cout << "1 - Pop \n";
 		cout << "2 - Push \n";
 		cout << "3 - get top \n";
@@ -119,53 +124,53 @@ int Menu(RingBuffer* ringBuffer)
 		cout << endl;
 		switch (count)
 		{
-		case 1:
-		{
-			try
+			case 1:
 			{
-				cout << ringBuffer->Pop() << endl;
-			}
-			catch (const char* error)
-			{
-				cout << error;
+				try
+				{
+					cout << ringBuffer->Pop() << endl;
+				}
+				catch (std::exception error)
+				{
+					cout << error.what();
+					system("pause");
+					break;
+				}
 				system("pause");
 				break;
 			}
-			system("pause");
-			break;
-		}
-		case 2:
-		{
-			cout << "Enter integer value\n";
-			valueForMenu = GetElementConsole();
-			ringBuffer->Push(valueForMenu);
-			break;
-		}
-		case 3:
-		{
-			try
+			case 2:
 			{
-				cout << ringBuffer->GetTop() << endl;
+				cout << "Enter integer value\n";
+				valueForMenu = GetElementConsole();
+				ringBuffer->Push(valueForMenu);
+				break;
 			}
-			catch (const char* error)
+			case 3:
 			{
-				cout << error;
+				try
+				{
+					cout << ringBuffer->GetTop() << endl;
+				}
+				catch (std::exception error)
+				{
+					cout << error.what();
+					system("pause");
+					break;
+				}
 				system("pause");
 				break;
 			}
-			system("pause");
-			break;
-		}
-		case 0:
-		{
-			return 0;
-		}
-		default:
-		{
-			cout << "Invalid value\n";
-			system("pause");
-			break;
-		}
+			case 0:
+			{
+				return 0;
+			}
+			default:
+			{
+				cout << "Invalid value\n";
+				system("pause");
+				break;
+			}
 		}
 		system("cls");
 	}
@@ -189,53 +194,53 @@ int Menu(QueueTwoStacks* queueTwoStacks)
 		cout << endl;
 		switch (count)
 		{
-		case 1:
-		{
-			try
+			case 1:
 			{
-				cout << queueTwoStacks->DeQueue() << endl;
-			}
-			catch (const char* error)
-			{
-				cout << error;
+				try
+				{
+					cout << queueTwoStacks->DeQueue() << endl;
+				}
+				catch (std::exception error)
+				{
+					cout << error.what();
+					system("pause");
+					break;
+				}
 				system("pause");
 				break;
 			}
-			system("pause");
-			break;
-		}
-		case 2:
-		{
-			cout << "Enter integer value\n";
-			valueForMenu = GetElementConsole();
-			queueTwoStacks->EnQueue(valueForMenu);
-			break;
-		}
-		case 3:
-		{
-			try
+			case 2:
 			{
-				cout << queueTwoStacks->GetTop() << endl;
+				cout << "Enter integer value\n";
+				valueForMenu = GetElementConsole();
+				queueTwoStacks->EnQueue(valueForMenu);
+				break;
 			}
-			catch (const char* error)
+			case 3:
 			{
-				cout << error;
+				try
+				{
+					cout << queueTwoStacks->GetTop() << endl;
+				}
+				catch (std::exception error)
+				{
+					cout << error.what();
+					system("pause");
+					break;
+				}
 				system("pause");
 				break;
 			}
-			system("pause");
-			break;
-		}
-		case 0:
-		{
-			return 0;
-		}
-		default:
-		{
-			cout << "Invalid value\n";
-			system("pause");
-			break;
-		}
+			case 0:
+			{
+				return 0;
+			}
+			default:
+			{
+				cout << "Invalid value\n";
+				system("pause");
+				break;
+			}
 		}
 		system("cls");
 	}
@@ -249,8 +254,8 @@ int Menu(QueueRing* queueRing)
 	int valueForMenu = 0;
 	for (;;) {
 		cout << "+=================== Ring Queue ===================+" << endl;
-		cout << "Free space = " << queueRing->GetFreeSpace() << endl;
-		cout << "Occupied space = " << queueRing->GetOccupiedSpace() << endl;
+		cout << "Free space = " << queueRing->GetFreeQuantity() << endl;
+		cout << "Occupied space = " << queueRing->GetOccupiedQuantity() << endl;
 		cout << "1 - DeQueue \n";
 		cout << "2 - EnQueue \n";
 		cout << "3 - get top \n";
@@ -260,53 +265,53 @@ int Menu(QueueRing* queueRing)
 		cout << endl;
 		switch (count)
 		{
-		case 1:
-		{
-			try
+			case 1:
 			{
-				cout << queueRing->DeQueue() << endl;
-			}
-			catch (const char* error)
-			{
-				cout << error;
+				try
+				{
+					cout << queueRing->DeQueue() << endl;
+				}
+				catch (std::exception error)
+				{
+					cout << error.what();
+					system("pause");
+					break;
+				}
 				system("pause");
 				break;
 			}
-			system("pause");
-			break;
-		}
-		case 2:
-		{
-			cout << "Enter integer value\n";
-			valueForMenu = GetElementConsole();
-			queueRing->EnQueue(valueForMenu);
-			break;
-		}
-		case 3:
-		{
-			try
+			case 2:
 			{
-				cout << queueRing->GetTop() << endl;
+				cout << "Enter integer value\n";
+				valueForMenu = GetElementConsole();
+				queueRing->EnQueue(valueForMenu);
+				break;
 			}
-			catch (const char* error)
+			case 3:
 			{
-				cout << error;
+				try
+				{
+					cout << queueRing->GetTop() << endl;
+				}
+				catch (std::exception error)
+				{
+					cout << error.what();
+					system("pause");
+					break;
+				}
 				system("pause");
 				break;
 			}
-			system("pause");
-			break;
-		}
-		case 0:
-		{
-			return 0;
-		}
-		default:
-		{
-			cout << "Invalid value\n";
-			system("pause");
-			break;
-		}
+			case 0:
+			{
+				return 0;
+			}
+			default:
+			{
+				cout << "Invalid value\n";
+				system("pause");
+				break;
+			}
 		}
 		system("cls");
 	}

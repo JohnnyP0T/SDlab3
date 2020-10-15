@@ -1,36 +1,43 @@
 #include "QueueRing.h"
 
-QueueRing::QueueRing()
+
+QueueRing::QueueRing(int length)
 {
-	_ringBuffer = new RingBuffer;
+	_ringBuffer = new RingBuffer(length);
 }
+
 
 QueueRing::~QueueRing()
 {
 	delete _ringBuffer;
 }
 
+
 void QueueRing::EnQueue(int data)
 {
 	_ringBuffer->Push(data);
 }
+
 
 int QueueRing::DeQueue()
 {
 	return _ringBuffer->Pop();
 }
 
+
 int QueueRing::GetTop()
 {
 	return _ringBuffer->GetTop();
 }
 
-int QueueRing::GetFreeSpace()
+
+int QueueRing::GetFreeQuantity()
 {
-	return _ringBuffer->GetFreeSpace();
+	return _ringBuffer->GetFreeQuantity();
 }
 
-int QueueRing::GetOccupiedSpace()
+
+int QueueRing::GetOccupiedQuantity()
 {
-	return _ringBuffer->GetOccupiedSpace();
+	return _ringBuffer->GetOccupiedQuantity();
 }

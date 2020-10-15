@@ -1,5 +1,6 @@
-#include "Stack.h"
+#include <exception>
 
+#include "Stack.h"
 
 Stack::Stack()
 {
@@ -15,11 +16,7 @@ Stack::~Stack()
 
 bool Stack::IsEmpty()
 {
-	if (_length == 0)
-	{
-		return true;
-	}
-	return false;
+    return (_length == 0) ? true : false;
 }
 
 
@@ -54,9 +51,9 @@ void Stack::Push(int element)
     {
         ResizeArray();
     }
+
     _array[_length] = element;
     _length++;
-
 }
 
 
@@ -64,7 +61,7 @@ int Stack::Pop()
 {
     if (_length == 0)
     {
-        throw "Stack is empty\n";
+        throw std::exception("Stack is empty\n");
     }
     --_length;
     return _array[_length];
@@ -75,7 +72,7 @@ int Stack::GetTop()
 {
     if (_length == 0)
     {
-        throw "Stack is empty\n";
+        throw std::exception("Stack is empty\n");
     }
     return _array[_length - 1];
 }

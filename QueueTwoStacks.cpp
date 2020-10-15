@@ -1,5 +1,6 @@
 #include "QueueTwoStacks.h"
 
+
 QueueTwoStacks::QueueTwoStacks()
 {
 	stackFirst = new Stack;
@@ -45,8 +46,6 @@ int QueueTwoStacks::GetTop()
 	{
 		return stackSecond->GetTop();
 	}
-	else
-	{
-		return stackFirst->GetTop();
-	}
+
+	return stackFirst->GetTop();
 }

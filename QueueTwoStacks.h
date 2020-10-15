@@ -3,9 +3,9 @@
 
 #pragma once
 
-#include"Stack.h"
+#include "Stack.h"
 
-/// @brief очередь на базе двух стеков
+/// @brief Очередь на базе двух стеков
 class QueueTwoStacks
 {
 private:
@@ -13,25 +13,27 @@ private:
 	Stack* stackSecond;
 
 public:
+	/// @brief Конструктор
 	QueueTwoStacks();
 	
+	/// @brief Деструктор
 	~QueueTwoStacks();
 
-	/// @brief добавление в очередь
-	/// @param data значение
+	/// @brief Добавление в очередь
+	/// @param data Значение последнего элемента
 	void EnQueue(int data);
 	
-	/// @brief достать из очереди
-	/// @return значение
+	/// @brief Достать из очереди
+	/// @return Значение первого эелемента
 	int DeQueue();
 
 	/// @brief Размер двух стеков
-	/// @return значение
+	/// @return Значение длинны очереди
 	int GetLength();
 
-	/// @brief достать из очереди не удаляя
-	/// @return значение
+	/// @brief Достать из очереди не удаляя
+	/// @return Значение последнего элемента
 	int GetTop();
 };
 
-#endif
+#endif //_QUEUE_TWO_STACKS_H

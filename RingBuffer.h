@@ -1,48 +1,51 @@
 #ifndef _RING_BUFFER_H_
 #define _RING_BUFFER_H_
-#undef GetFreeSpace()
 #pragma once
 
-/// @brief кольцевой буфер
+/// @brief Кольцевой буфер
 class RingBuffer
 {
 private:
 	int* _array;
 	int _length = 16;
 	int _occupiedSpace = 0;
-	//индекс на самый новый
-	int _startPointer = 0;
-	//индекс на самый старый
-	int _endPointer = 0;
+	int _startPointer = 0;		///< Индекс на самый новый
+	int _endPointer = 0;	///< Индекс на самый старый
+	// Общий размер нужен что бы передвинуть на 1 индекс самого старого элемента,
+	// если стартпоитер пошел по второму кругу
 	int _overallSize = 0;
 
 public:
+	/// @brief Конструктор с параметром
+	/// @param length Длинна буфера
 	RingBuffer(int length);
 
+	/// @brief Конструктор
 	RingBuffer();
 
+	/// @brief Деструктор
 	~RingBuffer();
 
-	/// @brief положить значение в буфер
-	/// @param data значение
+	/// @brief Положить значение в буфер
+	/// @param data Значение вставляемого элемента
 	void Push(int data);
 
-	/// @brief вытащить самый старый элемент из буфера
-	/// @return значение элемента
+	/// @brief Вытащить самый старый элемент из буфера
+	/// @return Значение последнего элемента
 	int Pop();
 
-	/// @brief получить количестко свободных мест в буфере
-	/// @return количество свободных мест
-	int GetFreeSpace();
+	/// @brief Получить количестко свободных мест в буфере
+	/// @return Количество свободных мест
+	int GetFreeQuantity();
 
-	/// @brief получить количестко занятых мест в буфере
-	/// @return количество занятых мест
-	int GetOccupiedSpace();
+	/// @brief Получить количестко занятых мест в буфере
+	/// @return Количество занятых мест
+	int GetOccupiedQuantity();
 
-	/// @brief вернуть самый новый
-	/// @return 
+	/// @brief Вернуть самый новый
+	/// @return Значение последнего элемента
 	int GetTop();
 
 };
 
-#endif
+#endif //_RING_BUFFER_H_

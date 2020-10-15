@@ -1,3 +1,5 @@
+#include <exception>
+
 #include "RingBuffer.h"
 
 
@@ -41,7 +43,7 @@ int RingBuffer::Pop()
 {
 	if (_occupiedSpace == 0)
 	{
-		throw "ring is empty\n";
+		throw std::exception("Ring is empty\n");
 	}
 
 	--_occupiedSpace;
@@ -51,23 +53,25 @@ int RingBuffer::Pop()
 }
 
 
-int RingBuffer::GetFreeSpace()
+int RingBuffer::GetFreeQuantity()
 {
 	return (_length - _occupiedSpace);
 }
 
 
-int RingBuffer::GetOccupiedSpace()
+int RingBuffer::GetOccupiedQuantity()
 {
 	return _occupiedSpace;
 }
+
 
 int RingBuffer::GetTop()
 {
 	if (_overallSize == 0 || _occupiedSpace == 0)
 	{
-		throw "Buffer is empty\n";
+		throw std::exception("Ring is empty\n");
 	}
+
 	if (_startPointer == 0)
 	{
 		return _array[_length - 1];

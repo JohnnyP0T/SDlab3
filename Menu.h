@@ -18,4 +18,4 @@ int Menu(QueueTwoStacks* queueTwoStacks);
 
 int Menu(QueueRing* queueRing);
 
-#endif
+#endif //_MENU_H_
