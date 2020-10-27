@@ -15,13 +15,13 @@ QueueTwoStacks::~QueueTwoStacks()
 }
 
 
-void QueueTwoStacks::EnQueue(int data)
+void QueueTwoStacks::Enqueue(int data)
 {
 	stackFirst->Push(data);
 }
 
 
-int QueueTwoStacks::DeQueue()
+int QueueTwoStacks::Dequeue()
 {
 	if (stackSecond->IsEmpty() == true)
 	{

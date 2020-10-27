@@ -9,8 +9,7 @@
 
 using namespace std;
 
-// enum
-// enum class  сделаю в следующей-=
+
 
 int GetElementConsole()
 {
@@ -30,7 +29,10 @@ int GetElementConsole()
 				return number;
 			}
 		}
-		catch (exception) {}
+		catch (exception) 
+		{
+			cout << "Error exception\n";
+		}
 
 		cout << inputValue << " is not a number" << endl;
 	}
@@ -42,13 +44,13 @@ int Menu(Stack *stack)
 	bool valueForPrint = false;
 	int valueForMenu = 0;
 	for (;;) {
-		cout << "+=================== Stack ===================+" << endl;
-		cout << "Size = " << stack->GetLength() << endl;
-		cout << "1 - Pop \n";
-		cout << "2 - Push \n";
-		cout << "3 - get top \n";
-		cout << " =++=  0 - Exit  =++=" << endl;
-		cout << "Enter operation: ";
+		cout << "+=================== Stack ===================+" << endl
+			<< "Size = " << stack->GetLength() << endl
+			<< "1 - Pop \n"
+			<< "2 - Push \n"
+			<< "3 - get top \n"
+			<< " =++=  0 - Exit  =++=" << endl
+			<< "Enter operation: ";
 		count = GetElementConsole();
 		cout << endl;
 		switch (count)
@@ -198,7 +200,7 @@ int Menu(QueueTwoStacks* queueTwoStacks)
 			{
 				try
 				{
-					cout << queueTwoStacks->DeQueue() << endl;
+					cout << queueTwoStacks->Dequeue() << endl;
 				}
 				catch (std::exception error)
 				{
@@ -213,7 +215,7 @@ int Menu(QueueTwoStacks* queueTwoStacks)
 			{
 				cout << "Enter integer value\n";
 				valueForMenu = GetElementConsole();
-				queueTwoStacks->EnQueue(valueForMenu);
+				queueTwoStacks->Enqueue(valueForMenu);
 				break;
 			}
 			case 3:
@@ -269,7 +271,7 @@ int Menu(QueueRing* queueRing)
 			{
 				try
 				{
-					cout << queueRing->DeQueue() << endl;
+					cout << queueRing->Dequeue() << endl;
 				}
 				catch (std::exception error)
 				{
@@ -284,7 +286,7 @@ int Menu(QueueRing* queueRing)
 			{
 				cout << "Enter integer value\n";
 				valueForMenu = GetElementConsole();
-				queueRing->EnQueue(valueForMenu);
+				queueRing->Enqueue(valueForMenu);
 				break;
 			}
 			case 3:

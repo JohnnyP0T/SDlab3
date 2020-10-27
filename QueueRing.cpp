@@ -13,13 +13,13 @@ QueueRing::~QueueRing()
 }
 
 
-void QueueRing::EnQueue(int data)
+void QueueRing::Enqueue(int data)
 {
 	_ringBuffer->Push(data);
 }
 
 
-int QueueRing::DeQueue()
+int QueueRing::Dequeue()
 {
 	return _ringBuffer->Pop();
 }

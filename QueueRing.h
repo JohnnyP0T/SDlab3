@@ -19,11 +19,11 @@ public:
 
 	/// @brief Добавление в очередь
 	/// @param data Значение последнего элемента
-	void EnQueue(int data);
+	void Enqueue(int data);
 
 	/// @brief Достать из очереди
 	/// @return Значение первого эелемента
-	int DeQueue();
+	int Dequeue();
 
 	/// @brief Достать из очереди не удаляя
 	/// @return Значение последнего элемента
