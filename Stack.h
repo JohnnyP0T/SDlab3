@@ -27,6 +27,7 @@ public:
 	/// @brief Проверка на пустоту
 	/// @retval true	Это пустой
 	/// @retval false	Это непустой
+	/// @return Bool переменная
 	bool IsEmpty();
 
 	/// @brief Положить элемент в стек

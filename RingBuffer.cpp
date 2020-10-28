@@ -27,6 +27,7 @@ void RingBuffer::Push(int data)
 	_array[_startPointer] = data;
 	_startPointer = (_startPointer + 1) % _length;
 	++_overallSize;
+
 	if (_occupiedSpace < _length)
 	{
 		++_occupiedSpace;
@@ -49,6 +50,7 @@ int RingBuffer::Pop()
 	--_occupiedSpace;
 	int temp = _array[_endPointer];
 	_endPointer = (_endPointer + 1) % _length;
+
 	return temp;
 }
 
@@ -76,6 +78,7 @@ int RingBuffer::GetTop()
 	{
 		return _array[_length - 1];
 	}
+
 	return _array[(_startPointer - 1)];
 }
 

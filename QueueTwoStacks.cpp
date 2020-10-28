@@ -23,13 +23,14 @@ void QueueTwoStacks::Enqueue(int data)
 
 int QueueTwoStacks::Dequeue()
 {
-	if (stackSecond->IsEmpty() == true)
+	if (stackSecond->IsEmpty())
 	{
-		while (stackFirst->IsEmpty() == false)
+		while (!stackFirst->IsEmpty())
 		{
 			stackSecond->Push(stackFirst->Pop());
 		}
 	}
+
 	return stackSecond->Pop();
 }
 

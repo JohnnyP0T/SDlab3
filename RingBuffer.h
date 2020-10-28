@@ -1,5 +1,6 @@
 #ifndef _RING_BUFFER_H_
 #define _RING_BUFFER_H_
+
 #pragma once
 
 /// @brief Кольцевой буфер

@@ -187,7 +187,7 @@ int Menu(QueueTwoStacks* queueTwoStacks)
 	for (;;) {
 		cout << "+=================== Queue with two stacks ===================+" << endl;
 		cout << "Size = " << queueTwoStacks->GetLength() << endl;
-		cout << "1 - DeQueue \n";
+		cout << "1 - Dequeue \n";
 		cout << "2 - Enqueue \n";
 		cout << "3 - get top \n";
 		cout << " =++=  0 - Exit  =++=" << endl;
@@ -258,8 +258,8 @@ int Menu(QueueRing* queueRing)
 		cout << "+=================== Ring Queue ===================+" << endl;
 		cout << "Free space = " << queueRing->GetFreeQuantity() << endl;
 		cout << "Occupied space = " << queueRing->GetOccupiedQuantity() << endl;
-		cout << "1 - DeQueue \n";
-		cout << "2 - EnQueue \n";
+		cout << "1 - Dequeue \n";
+		cout << "2 - Enqueue \n";
 		cout << "3 - get top \n";
 		cout << " =++=  0 - Exit  =++=" << endl;
 		cout << "Enter operation: ";

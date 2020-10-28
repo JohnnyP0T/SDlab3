@@ -35,10 +35,12 @@ int Stack::GetCapacity()
 void Stack::ResizeArray()
 {
     int* newArray = new int[_capacity * _growthFactor];
+
     for (int i = 0; i < _capacity; i++)
     {
         newArray[i] = _array[i];
     }
+
     _capacity *= _growthFactor;
     delete[] _array;
     _array = newArray;
@@ -63,7 +65,9 @@ int Stack::Pop()
     {
         throw std::exception("Stack is empty\n");
     }
+
     --_length;
+
     return _array[_length];
 }
 
@@ -74,5 +78,6 @@ int Stack::GetTop()
     {
         throw std::exception("Stack is empty\n");
     }
+
     return _array[_length - 1];
 }
