@@ -43,7 +43,8 @@ int Menu(Stack *stack)
 	int count = 0;
 	bool valueForPrint = false;
 	int valueForMenu = 0;
-	for (;;) {
+	for (;;) 
+	{
 		cout << "+=================== Stack ===================+" << endl
 			<< "Size = " << stack->GetLength() << endl
 			<< "1 - Pop \n"
@@ -111,9 +112,10 @@ int Menu(Stack *stack)
 int Menu(RingBuffer* ringBuffer)
 {
 	int count = 0;
-	bool valueForPrint = 0;
+	bool valueForPrint = false;
 	int valueForMenu = 0;
-	for (;;) {
+	for (;;) 
+	{
 		cout << "+=================== Ring buffer ===================+" << endl;
 		cout << "Free space = " << ringBuffer->GetFreeQuantity() << endl;
 		cout << "Occupied space = " << ringBuffer->GetOccupiedQuantity() << endl;
@@ -182,9 +184,10 @@ int Menu(RingBuffer* ringBuffer)
 int Menu(QueueTwoStacks* queueTwoStacks)
 {
 	int count = 0;
-	bool valueForPrint = 0;
+	bool valueForPrint = false;
 	int valueForMenu = 0;
-	for (;;) {
+	for (;;) 
+	{
 		cout << "+=================== Queue with two stacks ===================+" << endl;
 		cout << "Size = " << queueTwoStacks->GetLength() << endl;
 		cout << "1 - Dequeue \n";
@@ -252,9 +255,10 @@ int Menu(QueueTwoStacks* queueTwoStacks)
 int Menu(QueueRing* queueRing)
 {
 	int count = 0;
-	bool valueForPrint = 0;
+	bool valueForPrint = false;
 	int valueForMenu = 0;
-	for (;;) {
+	for (;;) 
+	{
 		cout << "+=================== Ring Queue ===================+" << endl;
 		cout << "Free space = " << queueRing->GetFreeQuantity() << endl;
 		cout << "Occupied space = " << queueRing->GetOccupiedQuantity() << endl;

@@ -1,13 +1,14 @@
+#pragma once
+
 #ifndef _RING_BUFFER_H_
 #define _RING_BUFFER_H_
 
-#pragma once
 
 /// @brief Кольцевой буфер
 class RingBuffer
 {
 private:
-	int* _array;
+	int* _data;
 	int _length = 16;
 	int _occupiedSpace = 0;
 	int _startPointer = 0;		///< Индекс на самый новый

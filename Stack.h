@@ -1,14 +1,14 @@
+#pragma once
+
 #ifndef _STACK_H_
 #define _STACK_H_
-
-#pragma once
 
 
 /// @brief Стэк
 class Stack
 {
 private:
-	int* _array;
+	int* _data;
 	const int _growthFactor = 2;
 	int _length = 0;
 	int _capacity = 4;
@@ -27,7 +27,7 @@ public:
 	/// @brief Проверка на пустоту
 	/// @retval true	Это пустой
 	/// @retval false	Это непустой
-	/// @return Bool переменная
+	/// @return Значение проверки на пустоту
 	bool IsEmpty();
 
 	/// @brief Положить элемент в стек

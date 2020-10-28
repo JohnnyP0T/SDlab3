@@ -1,7 +1,8 @@
+#pragma once
+
 #ifndef _QUEUE_TWO_STACKS_H
 #define _QUEUE_TWO_STACKS_H
 
-#pragma once
 
 #include "Stack.h"
 

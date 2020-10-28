@@ -5,26 +5,26 @@
 
 RingBuffer::RingBuffer()
 {
-	_array = new int[_length];
+	_data = new int[_length];
 }
 
 
 RingBuffer::RingBuffer(int length)
 {
 	_length = length;
-	_array = new int[_length];
+	_data = new int[_length];
 }
 
 
 RingBuffer::~RingBuffer()
 {
-	delete[] _array;
+	delete[] _data;
 }
 
 
 void RingBuffer::Push(int data)
 {
-	_array[_startPointer] = data;
+	_data[_startPointer] = data;
 	_startPointer = (_startPointer + 1) % _length;
 	++_overallSize;
 
@@ -48,7 +48,7 @@ int RingBuffer::Pop()
 	}
 
 	--_occupiedSpace;
-	int temp = _array[_endPointer];
+	int temp = _data[_endPointer];
 	_endPointer = (_endPointer + 1) % _length;
 
 	return temp;
@@ -76,10 +76,10 @@ int RingBuffer::GetTop()
 
 	if (_startPointer == 0)
 	{
-		return _array[_length - 1];
+		return _data[_length - 1];
 	}
 
-	return _array[(_startPointer - 1)];
+	return _data[(_startPointer - 1)];
 }
 
 

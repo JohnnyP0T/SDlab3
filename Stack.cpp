@@ -4,13 +4,13 @@
 
 Stack::Stack()
 {
-    _array = new int[_capacity];
+    _data = new int[_capacity];
 }
 
 
 Stack::~Stack()
 {
-    delete[] _array;
+    delete[] _data;
 }
 
 
@@ -38,12 +38,12 @@ void Stack::ResizeArray()
 
     for (int i = 0; i < _capacity; i++)
     {
-        newArray[i] = _array[i];
+        newArray[i] = _data[i];
     }
 
     _capacity *= _growthFactor;
-    delete[] _array;
-    _array = newArray;
+    delete[] _data;
+    _data = newArray;
 }
 
 
@@ -54,7 +54,7 @@ void Stack::Push(int element)
         ResizeArray();
     }
 
-    _array[_length] = element;
+    _data[_length] = element;
     _length++;
 }
 
@@ -67,8 +67,7 @@ int Stack::Pop()
     }
 
     --_length;
-
-    return _array[_length];
+    return _data[_length];
 }
 
 
@@ -79,5 +78,5 @@ int Stack::GetTop()
         throw std::exception("Stack is empty\n");
     }
 
-    return _array[_length - 1];
+    return _data[_length - 1];
 }

@@ -1,7 +1,8 @@
+#pragma once
+
 #ifndef _MENU_H_
 #define _MENU_H_
 
-#pragma once
 
 #include "RingBuffer.h"
 #include "Stack.h"
