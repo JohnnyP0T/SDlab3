@@ -9,7 +9,7 @@
 #include "QueueTwoStacks.h"
 #include "QueueRing.h"
 
-/// @brief 
+/// @brief get elementconsole
 /// @return 
 int GetElementConsole();
 
