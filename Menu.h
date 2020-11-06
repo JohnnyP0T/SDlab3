@@ -9,6 +9,8 @@
 #include "QueueTwoStacks.h"
 #include "QueueRing.h"
 
+/// @brief 
+/// @return 
 int GetElementConsole();
 
 int Menu(Stack* stack);
