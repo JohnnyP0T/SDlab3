@@ -1,2 +1,4 @@
 C:\Users\arrog\Desktop\dev\SDlab3\x64\Debug\SDlab3.exe
 C:\Users\arrog\Desktop\dev\SDlab3\x64\Debug\SDlab3.pdb
+C:\Users\arrog\Desktop\dev\Новая папка\StackRingBufferQueue\x64\Debug\SDlab3.exe
+C:\Users\arrog\Desktop\dev\Новая папка\StackRingBufferQueue\x64\Debug\SDlab3.pdb

@@ -33,7 +33,7 @@ void RingBuffer::Push(int data)
 		++_occupiedSpace;
 	}
 
-	if (_overallSize > _length )
+	if (_overallSize > _length)
 	{
 		_endPointer = (_endPointer + 1) % _length;
 	}
@@ -52,6 +52,12 @@ int RingBuffer::Pop()
 	int temp = _data[_endPointer];
 	_endPointer = (_endPointer + 1) % _length;
 
+	if(!GetOccupiedQuantity())
+	{
+		_endPointer = _startPointer;
+		_overallSize = 0;
+	}
+	
 	return temp;
 }
 
